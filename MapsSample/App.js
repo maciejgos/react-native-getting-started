@@ -4,9 +4,13 @@ import {
     Button,
     Text,
     TextInput,
-    StyleSheet
+    StyleSheet,
+    Dimensions,
+    Alert,
 } from 'react-native';
 import MapView from 'react-native-maps';
+
+const { height, width } = Dimensions.get('window');
 
 class App extends Component {
     constructor(){
@@ -16,12 +20,27 @@ class App extends Component {
     render() {
         return( 
             <View style={styles.container}>
-                <Text>
-                    Hello from React Native!!!
-                </Text>
+                <MapView
+                    initialRegion={{
+                        latitude: 37.78825,
+                        longitude: -122.4324,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    }}
+                    style={styles.map} 
+                />
+                <Button 
+                    title="Take Picture"
+                    style={styles.button}
+                    onPress={onTakePictureButtonPress}
+                />
             </View>
         );
     }
+}
+
+const onTakePictureButtonPress = () => {
+    Alert.alert("Butto is pressed!");
 }
 
 const styles = StyleSheet.create({
@@ -31,6 +50,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  map: {
+      height: height,
+      width: width,
+      padding: 20,
+  },
+  button: {
+      margin: 20,
+  }
 });
 
 module.exports = App;
