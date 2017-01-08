@@ -40,7 +40,7 @@ class App extends Component {
 }
 
 const onTakePictureButtonPress = () => {
-    Alert.alert("Butto is pressed!");
+    Alert.alert("Button is pressed!");
 }
 
 const styles = StyleSheet.create({
