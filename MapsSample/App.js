@@ -19,7 +19,7 @@ class App extends Component {
 
     render() {
         return( 
-            <View style={styles.container}>
+            <View>
                 <MapView
                     initialRegion={{
                         latitude: 37.78825,
